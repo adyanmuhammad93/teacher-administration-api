@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Teacher Administration</title>
+  <rect width="64" height="64" rx="14" fill="#0f766e"/>
+  <path d="M17 20h30v7H17zM21 30h22v6H21zM21 40h15v6H21z" fill="#f8fafc"/>
+  <path d="M42 39h5v7h-5z" fill="#fbbf24"/>
+</svg>
