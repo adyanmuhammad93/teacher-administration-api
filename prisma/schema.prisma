@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Teacher {
+  id            Int             @id @default(autoincrement())
+  email         String          @unique @db.VarChar(255)
+  createdAt     DateTime        @default(now()) @map("created_at")
+  teacherStudents TeacherStudent[]
+
+  @@map("teachers")
+}
+
+model Student {
+  id            Int             @id @default(autoincrement())
+  email         String          @unique @db.VarChar(255)
+  suspended     Boolean         @default(false)
+  createdAt     DateTime        @default(now()) @map("created_at")
+  teacherStudents TeacherStudent[]
+
+  @@index([suspended])
+  @@map("students")
+}
+
+model TeacherStudent {
+  teacherId     Int      @map("teacher_id")
+  studentId     Int      @map("student_id")
+  createdAt     DateTime @default(now()) @map("created_at")
+  teacher       Teacher  @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  student       Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@id([teacherId, studentId])
+  @@index([studentId])
+  @@map("teacher_students")
+}
