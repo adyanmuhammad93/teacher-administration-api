@@ -22,7 +22,7 @@ Run `pnpm prisma generate` after installing dependencies. Both Prisma CLI and th
 
 ## Endpoints
 
-- `POST /api/register` with `{ "teacher": "teacher@example.com", "students": ["student@example.com"] }` returns `200`.
+- `POST /api/register` with `{ "teacher": "teacher@example.com", "students": ["student@example.com"] }` returns `204`.
 - `GET /api/commonstudents?teacher=teacher@example.com&teacher=other@example.com` returns `{ "students": [] }`.
 - `POST /api/suspend` with `{ "student": "student@example.com" }` returns `204`.
 - `POST /api/retrievefornotifications` with `{ "teacher": "teacher@example.com", "notification": "Hello @student@example.com" }` returns `{ "recipients": [] }`.
